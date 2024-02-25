@@ -3,13 +3,13 @@
 class Solution:
     def smallestNumberAtK(self, s: list[int], k: int) -> int:
         if not s or k <= 0 or k > len(s):
-            return 0  # Return an error value if k is not valid for the list
+            return 0
 
-        currentSum = sum(s[:k])  # Initial sum of the first window
+        currentSum = sum(s[:k])
         minSum = currentSum
 
         for i in range(k, len(s)):
-            currentSum += s[i] - s[i - k]  # Update the window by adding the next element and subtracting the first element of the previous window
+            currentSum += s[i] - s[i - k] 
             minSum = min(minSum, currentSum)
         return minSum
 
